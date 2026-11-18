@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Great Wall</title>
+  <meta name="description" content="An endless white wall of things I love.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="viewport" tabindex="-1">
+    <div id="world"></div>
+    <div id="empty" hidden>
+      <div class="empty-title">This wall is empty.</div>
+      <div class="empty-sub" data-edit-only>Drop photos, songs and memes anywhere, paste a link, or double-click to write a note.</div>
+    </div>
+  </div>
+
+  <header id="brand">
+    <span class="brick" aria-hidden="true"></span>
+    <span>great wall</span>
+    <span id="count"></span>
+  </header>
+
+  <div id="top-right">
+    <button id="login-btn" class="chip" hidden title="Unlock editing">
+      <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <span>Edit</span>
+    </button>
+    <button id="logout-btn" class="chip" hidden title="Lock the wall">
+      <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.6-1.7"/></svg>
+      <span>Lock</span>
+    </button>
+  </div>
+
+  <nav id="toolbar" hidden>
+    <button data-action="note" title="Note (N)">
+      <svg viewBox="0 0 24 24"><path d="M5 4h14v11l-5 5H5z"/><path d="M14 20v-5h5"/></svg><span>Note</span>
+    </button>
+    <button data-action="upload" title="Photos, songs, videos, any file (U)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span>Upload</span>
+    </button>
+    <button data-action="link" title="Link, song or video URL (L)">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span>Link</span>
+    </button>
+    <button data-action="record" title="Record a voice note (R)">
+      <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span>Record</span>
+    </button>
+  </nav>
+
+  <div id="zoom">
+    <button data-zoom="out" title="Zoom out (-)">−</button>
+    <button data-zoom="reset" id="zoom-label" title="Reset zoom (0)">100%</button>
+    <button data-zoom="in" title="Zoom in (+)">+</button>
+    <button data-zoom="fit" title="Show everything (F)">
+      <svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+    </button>
+  </div>
+
+  <div id="recorder" hidden>
+    <span class="rec-dot"></span>
+    <span id="rec-time">0:00</span>
+    <button id="rec-cancel" class="ghost">Cancel</button>
+    <button id="rec-stop">Save</button>
+  </div>
+
+  <div id="drop-hint" hidden><div>Drop to pin it on the wall</div></div>
+  <div id="toasts" aria-live="polite"></div>
+
+  <dialog id="dialog">
+    <form method="dialog" id="dialog-form">
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-text"></p>
+      <input id="dialog-input" autocomplete="off">
+      <div class="dialog-actions">
+        <button value="cancel" class="ghost" formnovalidate>Cancel</button>
+        <button value="ok" id="dialog-ok">OK</button>
+      </div>
+    </form>
+  </dialog>
+
+  <input type="file" id="file-input" multiple hidden>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

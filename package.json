@@ -1,0 +1,19 @@
+{
+  "name": "great-wall",
+  "version": "1.0.0",
+  "description": "An infinite white wall for everything you love — photos, songs, memes, links, recordings and notes — stored in Telegram.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --watch --env-file-if-exists=.env server/index.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}
